@@ -5,8 +5,7 @@ html
     link(rel='stylesheet', href='/stylesheets/style.css')
   body
     if user
-      p 
-      Hello #{user.displayName}
+      p Hello #{user.displayName}
       a(href="/logout") Logout
     else
       p
