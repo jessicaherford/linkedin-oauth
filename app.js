@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-
+require('dotenv').config();
 var app = express();
 
 // view engine setup
@@ -21,6 +21,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(session({ keys: [process.env.SESSION_KEY1, process.env.SESSION_KEY2] }))
+
 
 app.use('/', routes);
 app.use('/users', users);
